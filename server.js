@@ -1,7 +1,7 @@
 const express=require('express'),http=require('http'),{Server}=require('socket.io'),QRCode=require('qrcode'),crypto=require('crypto'),path=require('path');
 const app=express();app.use(express.json());app.use(express.static(path.join(__dirname,'public')));const server=http.createServer(app),io=new Server(server),rooms=new Map(),id=()=>crypto.randomUUID(),PORT=process.env.PORT||8080;
 function clean(s){return String(s||'').normalize('NFC').replace(/[<>]/g,'').trim().slice(0,22)}
-function createRoom(name,key){let code;do{code=crypto.randomBytes(3).toString('hex').toUpperCase()}while(rooms.has(code));const hostId=id(),r={code,hostId,players:[{id:hostId,name,side:0,host:true,playerKey:key,connected:false,socketId:null}],status:'lobby',board:[],currentSide:0,scores:[0,0],notice:'Chờ người chơi thứ hai tham gia.',log:'Phòng đã tạo. Mời bạn cùng chơi!',moveCount:0};rooms.set(code,r);return r}
+function createRoom(name,key){let code;do{code=crypto.randomBytes(3).toString('hex').toUpperCase()}while(rooms.has(code));const hostId=id(),r={code,hostId,players:[{id:hostId,name,side:0,host:true,playerKey:key,connected:false,socketId:null}],status:'lobby',board:[10,5,5,5,5,5,10,5,5,5,5,5],currentSide:0,scores:[0,0],notice:'Chờ người chơi thứ hai tham gia.',log:'Phòng đã tạo. Mời bạn cùng chơi!',moveCount:0};rooms.set(code,r);return r}
 function state(r){return {code:r.code,status:r.status,players:r.players.map(({id,name,side,host,connected})=>({id,name,side,host,connected})),board:r.board,currentSide:r.currentSide,scores:r.scores,notice:r.notice,log:r.log}}
 function broadcast(r){io.to(r.code).emit('room:state',state(r))}
 function next(i,d){return (i+d+12)%12}
