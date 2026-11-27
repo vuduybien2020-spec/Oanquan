@@ -252,3 +252,23 @@ body{background:radial-gradient(ellipse at top,#a72c35 0,#5b1024 65%,#310a18 100
 #qrBox{text-align:center;background:#fff4d7;color:#63202a;padding:12px;border-radius:14px;margin:12px auto;overflow-wrap:anywhere}#qrBox img{display:inline-block;border:5px solid white;border-radius:8px}
 #log{font-size:13px;margin-top:8px;line-height:1.5}
 @media(max-width:420px){.board-frame{padding:8px 5px}.quan{width:42px;height:56px}.pit{height:58px}.pit .stones{font-size:21px}.board-labels span:nth-child(2){font-size:9px}.controls{gap:5px}.action{font-size:12px;padding:10px 5px}}
+
+/* Mobile board correction: keep all five opponent pits inside the board,
+   and make unavailable actions readable rather than browser-washed out. */
+.quan-row{width:100%;min-width:0;gap:5px}
+.quan-row .pits{flex:1 1 0;min-width:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}
+.quan-row .pit{width:100%;min-width:0}
+.pits.bottom{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;width:100%}
+.pit:disabled{opacity:1;-webkit-text-fill-color:inherit;filter:saturate(.78);cursor:default}
+.pit.mine{border-color:#fff0a5;box-shadow:inset 0 0 0 2px #ffe9a0,0 3px 7px #6a321b66}
+.pit.selected{border-color:#fff;outline:3px solid #fff3a2;z-index:1}
+.action:disabled,.gold-btn:disabled{opacity:.72;color:#5a2a19;-webkit-text-fill-color:#5a2a19;filter:none}
+@media(max-width:420px){.quan{width:40px;height:54px;flex:0 0 40px}.quan-row{gap:4px}.quan-row .pits{gap:3px}.quan-row .pit,.pits.bottom .pit{height:58px}.pit .stones{font-size:20px}.pit small{font-size:8px}}
+
+/* Animated hand that visibly scatters stones from pit to pit */
+.board-frame{position:relative;overflow:hidden}
+.sowing-hand{position:absolute;left:50%;top:50%;z-index:20;font-size:34px;line-height:1;pointer-events:none;opacity:0;transform:translate(-50%,-65%) rotate(-22deg) scale(.72);filter:drop-shadow(0 4px 3px #4a1c0dcc);transition:left .17s ease-in-out,top .17s ease-in-out,transform .17s ease,opacity .12s ease}
+.sowing-hand.active{opacity:1;transform:translate(-50%,-65%) rotate(12deg) scale(1.12)}
+.sowing-hand.finish{opacity:0;transform:translate(-50%,-80%) rotate(28deg) scale(.55)}
+.pit:disabled{cursor:default}
+@media(max-width:420px){.sowing-hand{font-size:29px}}
