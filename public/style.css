@@ -279,8 +279,61 @@ body{background:radial-gradient(ellipse at top,#a72c35 0,#5b1024 65%,#310a18 100
 .quan-row .quan{width:44px!important;min-width:44px!important;height:60px!important;flex:none!important;box-sizing:border-box}
 .quan-row .pits{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;min-width:0!important;width:100%!important;flex:none!important;gap:4px!important}
 .quan-row .pit,.pits.bottom .pit{display:flex!important;width:100%!important;min-width:0!important;height:62px!important;min-height:62px!important;box-sizing:border-box!important;overflow:hidden}
-.pits.bottom{display:grid!important;grid-template-columns:44px repeat(5,minmax(0,1fr)) 44px!important;width:100%!important;min-width:0!important;gap:5px!important;align-items:center}.pits.bottom::before,.pits.bottom::after{content:"";display:block;width:100%;height:1px;visibility:hidden}
+.pits.bottom{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;width:100%!important;min-width:0!important;gap:5px!important}
 .pits.bottom .pit{width:100%!important;min-width:0!important;height:62px!important}
 .pit .stones{display:block;max-width:100%;font-size:clamp(16px,4vw,22px)!important;line-height:1.15;white-space:nowrap}
 .pit small{font-size:9px!important;white-space:nowrap}
-@media(max-width:420px){.board-frame{padding:8px 6px}.quan-row{grid-template-columns:36px minmax(0,1fr) 36px!important;gap:3px}.pits.bottom{grid-template-columns:36px repeat(5,minmax(0,1fr)) 36px!important;gap:3px!important}.quan-row .quan{width:36px!important;min-width:36px!important;height:54px!important;font-size:20px}.quan-row .pits,.pits.bottom{gap:3px!important}.quan-row .pit,.pits.bottom .pit{height:58px!important;min-height:58px!important}.pit .stones{font-size:18px!important}.pit small{font-size:8px!important}}
+@media(max-width:420px){.board-frame{padding:8px 6px}.quan-row{grid-template-columns:36px minmax(0,1fr) 36px!important;gap:3px}.quan-row .quan{width:36px!important;min-width:36px!important;height:54px!important;font-size:20px}.quan-row .pits,.pits.bottom{gap:3px!important}.quan-row .pit,.pits.bottom .pit{height:58px!important;min-height:58px!important}.pit .stones{font-size:18px!important}.pit small{font-size:8px!important}}
+
+/* FINAL VISUAL: match the supplied Ô Ăn Quan Tết reference */
+@media (max-width: 900px) {
+  body { background:#650d20 url('/assets/tet-background-clean.png') center top/cover fixed no-repeat!important; }
+}
+.game {max-width:760px!important;margin:0 auto!important;padding:12px 14px 90px!important;display:flex!important;flex-direction:column!important;gap:14px!important;overflow:visible!important}
+.game-heading{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:8px!important;min-height:42px!important}
+.game-heading .brand{display:block!important;font-size:clamp(19px,4vw,27px)!important;color:#fff1c9!important}
+.room-caption{font-size:11px!important;color:#ffe6a4!important}
+.head-tools{display:flex!important;flex-direction:column!important;align-items:flex-end!important;gap:5px!important}
+.online-pill,.sound-toggle{background:#681329!important;border:1.5px solid #f4d16c!important;color:#ffe8ac!important;border-radius:24px!important;font-weight:800!important}
+.notice{order:1!important;margin:0!important;width:100%!important;max-width:none!important;padding:13px 17px!important;border-radius:18px!important;background:#fff0c8!important;color:#702038!important;border:2px solid #e5b84f!important;font-size:14px!important;font-weight:800!important;line-height:1.35!important;box-shadow:0 4px 12px #26030c55!important}
+.scoreline{order:2!important;display:grid!important;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)!important;align-items:center!important;gap:8px!important;margin:0!important;padding:14px 10px!important;border:3px solid #e9bd55!important;border-radius:25px!important;background:linear-gradient(110deg,#68152b,#7c1b31,#68152b)!important;color:#fff0c8!important;text-align:center!important;font-size:clamp(14px,3vw,20px)!important;line-height:1.45!important;box-shadow:0 5px 15px #26030c55!important}
+.scoreline>div:first-child,.scoreline>div:last-child{min-width:0;font-weight:700!important}
+.scoreline>div:first-child:before,.scoreline>div:last-child:before{content:"";display:block;width:54px;height:54px;margin:0 auto 4px;border-radius:50%;border:3px solid #f6d46a;box-shadow:0 2px 8px #29030c;background-size:cover;background-position:center}
+.scoreline>div:first-child:before{background-image:url('/assets/mai.png')}
+.scoreline>div:last-child:before{background-image:url('/assets/nam.png')}
+.scoreline .vs{font-size:clamp(16px,3.5vw,24px)!important;white-space:nowrap;color:#ffe6a1!important}
+.board-frame{order:3!important;position:relative!important;display:flex!important;flex-direction:column!important;gap:8px!important;width:100%!important;height:auto!important;min-height:0!important;inset:auto!important;margin:0!important;padding:13px 10px 14px!important;border:9px solid #9c5424!important;border-radius:34px!important;background:linear-gradient(145deg,#f6d28a 0%,#d99a4e 48%,#f4d18a 100%)!important;box-shadow:inset 0 0 0 4px #ffe6a1,inset 0 0 22px #7a3d1b66,0 10px 25px #21030c99!important;color:#552313!important;overflow:hidden!important}
+.quan-row{position:static!important;display:grid!important;grid-template-columns:clamp(54px,13vw,82px) minmax(0,1fr) clamp(54px,13vw,82px)!important;gap:7px!important;align-items:stretch!important;width:100%!important;height:auto!important}
+.quan{position:static!important;display:grid!important;place-items:center!important;min-width:0!important;min-height:clamp(78px,19vw,112px)!important;border:4px solid #7b3c20!important;border-radius:48%!important;background:radial-gradient(ellipse at 35% 25%,#fff0b5,#d49a4d 72%,#9b5628)!important;color:#fff4d8!important;font:900 clamp(20px,5vw,31px) 'Baloo 2',sans-serif!important;text-shadow:0 2px 3px #633016!important;box-shadow:inset 0 0 0 3px #f9d98b,0 4px 7px #68351477!important}
+.pits{position:static!important;display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:clamp(4px,1.2vw,10px)!important;width:100%!important;min-width:0!important;height:auto!important}
+.pit{position:relative!important;display:flex!important;flex-direction:column!important;justify-content:center!important;align-items:center!important;gap:0!important;width:100%!important;min-width:0!important;min-height:clamp(76px,19vw,112px)!important;padding:5px 1px!important;border:3px solid #8b4d28!important;border-radius:22px!important;background:linear-gradient(145deg,#fff0bd,#e9bd70 55%,#c88b47)!important;color:#542713!important;box-shadow:inset 0 0 0 2px #fff0c6,0 4px 7px #67361588!important;overflow:hidden!important}
+.pit .stones{display:block!important;font:900 clamp(20px,5vw,31px) 'Baloo 2',sans-serif!important;line-height:1.05!important;color:#572713!important;text-shadow:0 1px #fff0c4!important}
+.pit small{display:block!important;font-size:clamp(9px,2.3vw,13px)!important;color:#60361d!important;line-height:1.25!important}
+.pit.mine{border-color:#fff0bd!important;background:linear-gradient(145deg,#fff6d6,#e6b966)!important}
+.pit.selected{outline:4px solid #fff16a!important;transform:translateY(-3px)!important;box-shadow:0 0 0 5px #e79c24,0 7px 12px #65300e!important}
+.board-labels{position:static!important;display:grid!important;grid-template-columns:clamp(54px,13vw,82px) minmax(0,1fr) clamp(54px,13vw,82px)!important;gap:7px!important;align-items:center!important;text-align:center!important;color:#68391e!important;font:800 clamp(10px,2.6vw,14px) 'Baloo 2',sans-serif!important}
+.pits.bottom{position:static!important;display:grid!important;grid-template-columns:clamp(54px,13vw,82px) repeat(5,minmax(0,1fr)) clamp(54px,13vw,82px)!important;gap:clamp(4px,1.2vw,10px)!important;width:100%!important;height:auto!important;min-width:0!important}
+.pits.bottom:before,.pits.bottom:after{content:"";display:block;visibility:hidden;min-width:0}
+.pits.bottom .pit{min-height:clamp(76px,19vw,112px)!important}
+.board-help{position:static!important;margin:1px 2px 0!important;text-align:center!important;color:#78502f!important;font-size:clamp(11px,2.8vw,16px)!important;line-height:1.4!important}
+.controls{order:4!important;display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;margin:0!important}
+.controls .action{min-width:0!important;min-height:58px!important;border:3px solid #ffdc78!important;border-radius:24px!important;font-size:clamp(12px,3vw,17px)!important;white-space:normal!important}
+.controls .draw{background:linear-gradient(#39b9f5,#0872c0)!important}
+.game>.panel{order:5!important;margin:0!important;border:3px solid #dca84c!important;border-radius:24px!important;padding:20px!important;background:linear-gradient(145deg,#fff0c8,#f2d394)!important;color:#682238!important;font-size:clamp(14px,3.2vw,19px)!important;box-shadow:0 7px 18px #25030c66!important}
+.game>.panel>b{font-size:1.25em!important}
+.game>.panel #log{margin-top:10px!important;line-height:1.5!important}
+.game>.controls:last-of-type{order:6!important}
+#qrBox{order:7!important;margin:0!important;padding:18px!important;text-align:center!important;background:#fff0c8!important;color:#682238!important;border-radius:22px!important;border:3px solid #e0b34f!important}
+#qrBox img{max-width:180px!important;border:7px solid white!important;border-radius:12px!important}
+.sowing-hand{z-index:20!important;font-size:35px!important;filter:drop-shadow(0 4px 4px #48200c)!important}
+@media(max-width:390px){
+ .game{padding:9px 8px 80px!important;gap:10px!important}
+ .board-frame{padding:9px 6px 10px!important;border-width:7px!important;border-radius:27px!important}
+ .quan-row,.board-labels{grid-template-columns:48px minmax(0,1fr) 48px!important;gap:4px!important}
+ .pits.bottom{grid-template-columns:48px repeat(5,minmax(0,1fr)) 48px!important;gap:4px!important}
+ .pit{border-radius:15px!important;min-height:72px!important}
+ .pit .stones{font-size:20px!important}
+ .quan{min-height:72px!important;font-size:20px!important}
+ .scoreline{padding:10px 6px!important}
+ .scoreline>div:first-child:before,.scoreline>div:last-child:before{width:43px;height:43px}
+}
