@@ -1,11 +1,15 @@
 # Ô Ăn Quan Tết 2027
-Game ô ăn quan trực tuyến 2 người, giao diện ưu tiên điện thoại Android, tạo phòng bằng mã và QR, chơi theo lượt qua Socket.IO.
 
-## Chạy
-`npm install` rồi `npm start`; mở `http://localhost:8080`.
+Game web Ô Ăn Quan 2 người, giao diện đỏ-vàng Tết, hỗ trợ tạo phòng, mã phòng, QR, đồng bộ lượt chơi qua Socket.IO và hiển thị tốt trên điện thoại.
 
-## Railway
-Đẩy toàn bộ nội dung thư mục này lên GitHub, kết nối Railway và deploy Node service. Không cần PostgreSQL. Có thể đặt `PUBLIC_BASE_URL` bằng URL công khai của ứng dụng để tạo QR ổn định.
+## Chạy local
+- Cài Node.js 18+
+- `npm install`
+- `npm start`
+- Mở `http://localhost:3000`
 
-## Lưu ý
-Đây là phiên bản nền tảng để thử nghiệm: rải quân, lượt chơi, ăn quân cơ bản, tạo phòng và mời bằng QR đã được triển khai. Luật ăn liên hoàn/nuôi quân và các biến thể địa phương có thể cần điều chỉnh theo cách chơi mà bạn muốn.
+## Deploy Railway
+Đưa toàn bộ nội dung thư mục dự án lên GitHub, kết nối Railway. Railway tự chạy `npm start`; không cần khai báo PORT vì server đọc `process.env.PORT`.
+
+## Luật đang triển khai
+Bản này là bản chơi 2 người với 5 quân dân mỗi ô, 10 quân quy ước trong mỗi ô quan, rải thuận/ngược và cơ chế ăn quân cơ bản. Luật ăn quân có thể cần tinh chỉnh theo biến thể địa phương mong muốn.

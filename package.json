@@ -1,1 +1,14 @@
-{"name": "o-an-quan-tet-2027", "version": "1.0.0", "private": true, "main": "server.js", "scripts": {"start": "node server.js"}, "engines": {"node": ">=20"}, "dependencies": {"express": "^4.21.2", "socket.io": "^4.8.1", "qrcode": "^1.5.4", "pg": "^8.13.1"}}
+{
+  "name": "o-an-quan-tet-2027",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Game Ô Ăn Quan Tết 2027 - chơi online 2 người",
+  "main": "server.js",
+  "scripts": {"start": "node server.js"},
+  "engines": {"node": ">=18"},
+  "dependencies": {
+    "express": "^4.21.2",
+    "socket.io": "^4.8.1",
+    "qrcode": "^1.5.4"
+  }
+}
